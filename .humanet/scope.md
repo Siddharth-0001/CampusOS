@@ -34,7 +34,7 @@ CampusOS is built in phases, each expanding functionality.
 ### In Scope
 * **Auth Module** — JWT-based authentication
 * **Users Module** — User management and profiles
-* **Institutes Module** — Multi-tenant setup
+* **Institutes Module** — Institute creation and management
 * **Clubs Module** — Club creation and management
 * **RBAC System** — Role-based access control
 
@@ -48,7 +48,7 @@ CampusOS is built in phases, each expanding functionality.
 * User can create institute
 * User can create club
 * RBAC permissions working
-* Multi-tenant isolation verified
+* Proper data management and isolation verified
 
 ---
 

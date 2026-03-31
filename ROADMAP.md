@@ -2,7 +2,7 @@
 
 ## 🎯 Project Overview
 
-CampusOS is a modular, multi-tenant platform designed to manage the complete lifecycle of campus activities including:
+CampusOS is a modular, scalable platform designed to manage the complete lifecycle of campus activities including:
 
 * Clubs & organizational structure
 * Events & participation
@@ -48,7 +48,7 @@ Set up development environment, architecture, and documentation.
 ### Repository Setup
 
 * [ ] Initialize Git repository
-* [ ] Setup monorepo structure
+* [ ] Setup monorepo structure with npm workspaces
 * [ ] Create folders:
 
   * [ ] `/backend`
@@ -108,7 +108,7 @@ Establish identity and organizational structure.
 ### Institute Module
 
 * [ ] Create institute
-* [ ] Multi-tenant structure
+
 
 ---
 

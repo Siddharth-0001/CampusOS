@@ -3,7 +3,7 @@
 
 # campus-os
 
-> A modular, multi-tenant Campus Operating System for managing the complete lifecycle of campus activities
+> A modular Campus Operating System for managing the complete lifecycle of campus activities
 
 ## Overview
 

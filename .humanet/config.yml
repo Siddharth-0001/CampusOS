@@ -4,7 +4,7 @@ humanet:
   # Metadata
   id: ""
   name: "campus-os"
-  tagline: "A modular, multi-tenant Campus Operating System for managing the complete lifecycle of campus activities"
+  tagline: "A modular Campus Operating System for managing the complete lifecycle of campus activities"
   description: ""
   created: "2026-03-31"
   updated: "2026-03-31"

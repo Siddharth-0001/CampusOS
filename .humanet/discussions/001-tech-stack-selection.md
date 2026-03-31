@@ -7,8 +7,7 @@ Accepted
 
 CampusOS needs to support:
 - Modular, plugin-based architecture
-- Multi-tenant operations
-- Scalability (1000+ clubs)
+- Scalable operations
 - Fast development cycle
 - Community contributions
 
@@ -29,7 +28,7 @@ Need to decide on: backend, frontend, database
 - **Trade-off**: Larger bundle size than minimal alternatives
 
 ### Database: MongoDB
-- **Why**: Flexible schema, JSON documents, multi-tenant friendly
+- **Why**: Flexible schema, JSON documents
 - **Advantages**: Easy scaling, good for rapid development
 - **Trade-off**: Less strict schema enforcement than PostgreSQL
 - **Note**: Changed from PostgreSQL due to developer familiarity
