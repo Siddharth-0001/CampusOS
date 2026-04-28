@@ -1,6 +1,7 @@
 ---
 name: DependencyManager
 description: "Security updates, compatibility checks, version management. Use when: dependency reviews, security response, planning upgrades, onboarding developers, license checks."
+tools: [read, search, web, edit]
 ---
 
 # Dependency Manager Agent

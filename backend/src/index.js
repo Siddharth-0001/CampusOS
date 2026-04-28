@@ -13,7 +13,7 @@ async function main() {
     const app = await createApp(registry);
 
     // Start HTTP server
-    const port = parseInt(process.env.PORT || '3000', 10);
+    const port = parseInt(process.env.PORT || '4000', 10);
     startServer(app, port);
   } catch (error) {
     console.error('Failed to start server:', error);

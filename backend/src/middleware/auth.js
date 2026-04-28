@@ -3,17 +3,38 @@
  * Verifies JWT tokens and attaches user context to request
  */
 
+const PUBLIC_ROUTES = new Set([
+  '/health',
+  '/api/v1/auth/signup',
+  '/api/v1/auth/login'
+]);
+
+function isPublicEventRoute(req) {
+  if (req.method === 'GET' && req.path === '/api/v1/events') {
+    return true;
+  }
+
+  if (req.method === 'GET' && /^\/api\/v1\/events\/[^/]+$/.test(req.path)) {
+    return true;
+  }
+
+  if (
+    req.method === 'POST' &&
+    /^\/api\/v1\/events\/[^/]+\/registrations$/.test(req.path)
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 export function authMiddleware(req, res, next) {
-  // Skip auth for public routes
-  const publicRoutes = ['/api/auth/signup', '/api/auth/login', '/health'];
-  
-  if (publicRoutes.includes(req.path)) {
+  if (PUBLIC_ROUTES.has(req.path) || isPublicEventRoute(req)) {
     return next();
   }
 
-  // Extract token from Authorization header: "Bearer <token>"
   const authHeader = req.headers.authorization;
-  
+
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({
       success: false,
@@ -22,18 +43,25 @@ export function authMiddleware(req, res, next) {
     });
   }
 
-  const token = authHeader.substring(7); // Remove "Bearer " prefix
+  const token = authHeader.substring(7);
+  const registry = req.app?.locals?.registry;
+  const jwtAuthenticator = registry?.getAuthenticator('jwt');
+
+  if (!jwtAuthenticator) {
+    return res.status(500).json({
+      success: false,
+      error: 'Server Misconfiguration',
+      message: 'JWT authenticator is not configured'
+    });
+  }
 
   try {
-    // TODO: Verify JWT token
-    // const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // req.user = decoded; // Attach user info to request
+    const decoded = jwtAuthenticator.verify(token);
 
-    // For now, mock user context
     req.user = {
-      id: 'mock-user-id',
-      email: 'user@example.com',
-      role: 'user'
+      id: decoded.sub || decoded.id || null,
+      email: decoded.email || null,
+      role: decoded.role || 'user'
     };
 
     next();

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import MainLayout from './components/MainLayout';
 
 export default function Dashboard() {
@@ -7,6 +8,20 @@ export default function Dashboard() {
         <div className="mb-8">
           <h1 className="text-4xl text-gray-900 mb-2">Welcome to CampusOS</h1>
           <p className="text-lg text-gray-600">Campus Management & Community Platform</p>
+          <div className="flex gap-3 mt-4">
+            <Link
+              href="/login"
+              className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              className="inline-flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-900 text-sm font-medium hover:bg-gray-100 transition-colors"
+            >
+              Create account
+            </Link>
+          </div>
         </div>
 
         {/* Quick Stats */}

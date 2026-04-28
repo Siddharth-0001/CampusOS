@@ -7,14 +7,22 @@ import express from 'express';
 import cors from 'cors';
 import { loggerMiddleware } from './middleware/logger.js';
 import { authMiddleware } from './middleware/auth.js';
+import { requireRoles } from './middleware/permissions.js';
 import { errorMiddleware, notFoundMiddleware } from './middleware/error.js';
+import { registerJwtAuthenticator } from './auth/jwt-authenticator.js';
 import { loadPlugins } from './plugin-loader.js';
 
 export async function createApp(registry) {
   const app = express();
+  app.disable('x-powered-by');
+  app.locals.registry = registry;
 
   // Environment config
   const isDev = process.env.NODE_ENV !== 'production';
+  const allowedOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || 'http://localhost:3000')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 
   // ============== MIDDLEWARE CHAIN (Order matters!) ==============
 
@@ -23,10 +31,19 @@ export async function createApp(registry) {
   app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
   // 2. CORS - Allow cross-origin requests from frontend
-  app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-    credentials: true
-  }));
+  app.use(
+    cors({
+      origin(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+          return;
+        }
+
+        callback(new Error('CORS policy does not allow this origin'));
+      },
+      credentials: true
+    })
+  );
 
   // 3. Logging - Log all requests
   app.use(loggerMiddleware);
@@ -41,6 +58,8 @@ export async function createApp(registry) {
   });
 
   // 5. Authentication - Verify JWT before protected routes
+  registerJwtAuthenticator(registry);
+  registry.registerService('requireRoles', requireRoles);
   app.use(authMiddleware);
 
   // ============== PLUGIN LOADING ==============

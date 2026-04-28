@@ -1,6 +1,7 @@
 ---
 name: ReleaseManager
 description: "Versioning, changelogs, release coordination. Use when: packaging releases, planning version strategy, communicating changes, coordinating releases, managing versions."
+tools: [read, search, web, edit]
 ---
 
 # Release Manager Agent

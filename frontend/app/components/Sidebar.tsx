@@ -14,6 +14,8 @@ const SIDEBAR_LINKS: SidebarLink[] = [
   { href: '/institutes', label: 'Institutes', icon: '🏫' },
   { href: '/clubs', label: 'Clubs', icon: '🎯' },
   { href: '/events', label: 'Events', icon: '📅' },
+  { href: '/tasks', label: 'Tasks', icon: '🧩' },
+  { href: '/calendar', label: 'Calendar', icon: '📆' },
   { href: '/users', label: 'Users', icon: '👥' },
   { href: '/settings', label: 'Settings', icon: '⚙️' },
 ];
@@ -52,14 +54,14 @@ export default function Sidebar() {
       <div className="p-4 border-t border-gray-700 flex items-center justify-between gap-2 bg-black">
         {!isCollapsed && (
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-2xl flex-shrink-0">👤</div>
+            <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-2xl shrink-0">👤</div>
             <div className="flex flex-col gap-0.5 min-w-0">
               <p className="text-sm font-semibold text-gray-100 m-0 whitespace-nowrap overflow-hidden text-ellipsis">User</p>
               <p className="text-xs text-gray-400 m-0 whitespace-nowrap overflow-hidden text-ellipsis">Admin</p>
             </div>
           </div>
         )}
-        <button className="bg-none border-none text-gray-400 cursor-pointer text-xl p-2 rounded transition-all duration-200 hover:bg-gray-700 hover:text-red-500 flex-shrink-0" title="Logout">
+        <button className="bg-none border-none text-gray-400 cursor-pointer text-xl p-2 rounded transition-all duration-200 hover:bg-gray-700 hover:text-red-500 shrink-0" title="Logout">
           🚪
         </button>
       </div>

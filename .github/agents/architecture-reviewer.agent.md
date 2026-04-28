@@ -1,6 +1,7 @@
 ---
 name: ArchitectureReviewer
 description: "Code patterns, technical debt tracking, refactoring strategy. Use when: code review (architecture), planning refactoring, onboarding developers, before major releases, tech debt sprints."
+tools: [read, search, web, edit]
 ---
 
 # Architecture Reviewer Agent

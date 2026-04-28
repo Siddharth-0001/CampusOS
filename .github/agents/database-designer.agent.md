@@ -1,6 +1,7 @@
 ---
 name: DatabaseDesigner
 description: "MongoDB schema design, indexing strategies, and query optimization. Use when: adding new data models, refactoring schemas, optimizing slow queries, planning migrations, reviewing schema changes."
+tools: [read, search, web, edit]
 ---
 
 # Database Designer Agent

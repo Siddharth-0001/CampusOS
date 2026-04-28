@@ -1,6 +1,7 @@
 ---
 name: DocumentationSpecialist
 description: "API docs, tutorials, architecture diagrams. Use when: pre-release documentation, onboarding developers, architecture docs, tutorial creation, documentation maintenance."
+tools: [read, search, web, edit]
 ---
 
 # Documentation Specialist Agent

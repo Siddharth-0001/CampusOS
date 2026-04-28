@@ -1,6 +1,7 @@
 ---
 name: SecurityEngineer
 description: "OWASP compliance, auth patterns, vulnerability scanning. Use when: code review (security), pre-production audit, incident response, vulnerability response, sensitive features."
+tools: [read, search, web, edit]
 ---
 
 # Security Engineer Agent

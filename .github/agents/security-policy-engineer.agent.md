@@ -1,6 +1,7 @@
 ---
 name: SecurityPolicyEngineer
 description: "Vulnerability disclosure, compliance, incident response. Use when: pre-launch security setup, incident response, compliance requirements, policy updates, team training."
+tools: [read, search, web, edit]
 ---
 
 # Security Policy Engineer Agent

@@ -5,7 +5,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,20 +28,23 @@ export async function loadPlugins(app, registry) {
     // Skip non-directories
     if (!stat.isDirectory()) continue;
 
-    // Check if module has src/index.js
-    const moduleIndexPath = path.join(modulePath, 'src', 'index.js');
-    
-    if (!fs.existsSync(moduleIndexPath)) {
+    const entryCandidates = [
+      path.join(modulePath, 'plugin.js'),
+      path.join(modulePath, 'src', 'index.js')
+    ];
+    const moduleEntryPath = entryCandidates.find((entry) => fs.existsSync(entry));
+
+    if (!moduleEntryPath) {
       console.warn(
-        `⚠️  Skipped ${moduleName}: no src/index.js entry point found`
+        `⚠️  Skipped ${moduleName}: no plugin.js or src/index.js entry point found`
       );
       continue;
     }
 
     try {
       // Dynamically import the module
-      const module = await import(`file://${moduleIndexPath}`);
-      const init = module.default || module.init;
+      const loadedModule = await import(pathToFileURL(moduleEntryPath).href);
+      const init = loadedModule.init || loadedModule.default;
 
       if (typeof init !== 'function') {
         throw new Error(

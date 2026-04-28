@@ -1,6 +1,7 @@
 ---
 name: DevOpsEngineer
 description: "CI/CD pipelines, Docker, deployment automation. Use when: setting up pipelines, containerizing apps, planning infrastructure, deployment troubleshooting, cost optimization."
+tools: [read, search, web, edit]
 ---
 
 # DevOps Engineer Agent

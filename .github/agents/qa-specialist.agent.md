@@ -1,6 +1,7 @@
 ---
 name: QASpecialist
 description: "Test strategy, coverage targets, and test automation. Use when: creating tests, improving coverage, setting up testing infrastructure, code review, planning automation."
+tools: [read, search, web, edit]
 ---
 
 # QA Specialist Agent

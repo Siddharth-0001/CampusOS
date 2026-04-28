@@ -1,6 +1,7 @@
 ---
 name: FrontendEngineer
 description: "Next.js components, state management, and styling patterns. Use when: building components, refactoring structure, integrating APIs, optimizing performance, standardizing styling."
+tools: [read, search, web, edit]
 ---
 
 # Frontend Engineer Agent

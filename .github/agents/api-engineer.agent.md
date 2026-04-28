@@ -1,6 +1,7 @@
 ---
 name: APIEngineer
 description: "RESTful API design, versioning strategy, and error handling. Use when: designing endpoints, reviewing API design, planning version upgrades, standardizing error responses, designing filtering/pagination."
+tools: [read, search, web, edit]
 ---
 
 # API Engineer Agent

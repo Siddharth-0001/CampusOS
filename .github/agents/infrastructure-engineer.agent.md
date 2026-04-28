@@ -1,6 +1,7 @@
 ---
 name: InfrastructureEngineer
 description: "Monitoring, logging, incident response. Use when: production launch, incident response, cost analysis, capacity planning, performance monitoring."
+tools: [read, search, web, edit]
 ---
 
 # Infrastructure Engineer Agent

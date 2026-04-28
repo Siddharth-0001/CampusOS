@@ -1,6 +1,7 @@
 ---
 name: PerformanceOptimizer
 description: "Memory profiling, bundle optimization, and query tuning. Use when: investigating slow endpoints, reducing bundle size, optimizing queries, before releases, regression detection."
+tools: [read, search, web, edit]
 ---
 
 # Performance Optimizer Agent

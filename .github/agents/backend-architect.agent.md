@@ -1,6 +1,7 @@
 ---
 name: BackendArchitect
 description: "Express.js setup, plugin architecture, and middleware patterns. Use when: starting backend development, adding express middleware, troubleshooting server startup, designing authentication flow, optimizing request handling."
+tools: [read, search, web, edit]
 ---
 
 # Backend Architect Agent

@@ -1,6 +1,7 @@
 ---
 name: CommunityManager
 description: "Issue triage, contributor workflows, engagement. Use when: issue management, contributor onboarding, community engagement, building contributor base, feedback collection."
+tools: [read, search, web, edit]
 ---
 
 # Community Manager Agent
